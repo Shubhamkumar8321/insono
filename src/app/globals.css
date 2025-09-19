@@ -1,11 +1,6 @@
 @import "tailwindcss";
 
-
-
 @custom-variant dark (&:is(.dark *));
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @font-face {
   font-family: "Museo Sans";
@@ -45,7 +40,6 @@ button {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-
 
 @theme inline {
   --color-background: var(--background);

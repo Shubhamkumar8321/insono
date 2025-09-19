@@ -1,6 +1,6 @@
-"use client"
-import { useState } from "react"
-import { Plus, Minus } from "lucide-react"
+"use client";
+import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
@@ -31,10 +31,10 @@ const faqs = [
     q: "How much do hearing aids cost, and do you offer financing?",
     a: "Costs vary by brand, features, and technology. We offer flexible payment plans and financing options to make them affordable.",
   },
-]
+];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null);
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-[#4b72b5] to-[#023784] py-16 px-4">
@@ -65,7 +65,9 @@ export default function FAQ() {
               </button>
               <div
                 className={`ml-10 overflow-hidden transition-all duration-500 ease-in-out ${
-                  openIndex === idx ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                  openIndex === idx
+                    ? "max-h-40 opacity-100"
+                    : "max-h-0 opacity-0"
                 }`}
               >
                 <p className="text-white/80 text-sm leading-relaxed pr-6 pb-4">
@@ -80,10 +82,11 @@ export default function FAQ() {
         <div className="text-center mt-16">
           <h3 className="text-xl font-semibold mb-4">Still have questions?</h3>
           <p className="text-white/80 mb-6">
-            Our audiologists are here to guide you. Book a free consultation today.
+            Our audiologists are here to guide you. Book a free consultation
+            today.
           </p>
           <a
-            href="/contact"
+            href="/form"
             className="inline-block bg-white text-[#023784] font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition"
           >
             Book a Free Consultation
@@ -91,5 +94,5 @@ export default function FAQ() {
         </div>
       </div>
     </section>
-  )
+  );
 }
