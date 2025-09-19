@@ -1,8 +1,5 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useParams, useRouter } from "next/navigation";
+import { Metadata } from "next";
 import { graphQLClient, GET_PRODUCTS } from "@/lib/graphql";
 
 interface Product {
@@ -14,41 +11,87 @@ interface Product {
   description?: string;
 }
 
-export default function ProductPage() {
-  const params = useParams();
-  const router = useRouter();
-  const { slug } = params;
-  const [product, setProduct] = useState<Product | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (!slug) return;
-
-    async function fetchProduct() {
-      try {
-        const data = await graphQLClient.request<{
-          products: { nodes: Product[] };
-        }>(GET_PRODUCTS);
-
-        const found = data.products.nodes.find((p) => p.slug === slug);
-        setProduct(found || null);
-      } catch (error) {
-        console.error("Error fetching product:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchProduct();
-  }, [slug]);
-
-  if (loading) {
-    return (
-      <main className="max-w-4xl mx-auto px-6 py-20 text-center">
-        <p className="text-lg text-gray-600">Loading product...</p>
-      </main>
-    );
+// 🔹 Fetch all products
+async function getProducts(): Promise<Product[]> {
+  try {
+    const data = await graphQLClient.request<{
+      products: { nodes: Product[] };
+    }>(GET_PRODUCTS);
+    return data.products.nodes;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return [];
   }
+}
+
+// 🔹 Fetch product by slug
+async function getProduct(slug: string): Promise<Product | null> {
+  const products = await getProducts();
+  return products.find((p) => p.slug === slug) || null;
+}
+
+// ✅ Dynamic Metadata for SEO
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product = await getProduct(slug);
+
+  if (!product) {
+    return {
+      title: "Product Not Found | Insono Hearing",
+      description: "This product could not be found.",
+    };
+  }
+
+  const title = `${product.title} | Insono Hearing`;
+  const description =
+    product.description ||
+    `Discover ${product.title} at Insono Hearing. Affordable and high-quality hearing solutions.`;
+
+  const image =
+    product.featuredImage?.node?.sourceUrl ||
+    "https://mediumslateblue-seahorse-306408.hostingersite.com/default-og.jpg";
+  const url = `https://insonohearing.com/products/${slug}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website", // ✅ fixed (was "product", now valid)
+      siteName: "Insono Hearing",
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: product.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+      creator: "@yourtwitterhandle",
+    },
+  };
+}
+
+// ✅ Page Component
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const product = await getProduct(slug);
 
   if (!product) {
     return (
@@ -95,22 +138,14 @@ export default function ProductPage() {
               "This is a high-quality product designed to meet your needs. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec facilisis magna, non gravida felis."}
           </p>
 
-          <button
-            onClick={() => router.push("/form")}
+          <a
+            href="/form"
             className="bg-[#023784] text-white px-6 py-3 rounded-md hover:bg-[#012d66] transition w-full sm:w-auto text-center font-medium"
           >
             Buy Now
-          </button>
+          </a>
         </div>
       </div>
-
-      {/* Optional: Related Products Section */}
-      {/* <div className="mt-16">
-        <h2 className="text-2xl font-bold mb-6">Related Products</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          // Map related products here
-        </div>
-      </div> */}
     </main>
   );
 }
