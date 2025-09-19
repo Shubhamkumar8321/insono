@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import Image from "next/image";
 import Popup from "@/components/popup";
 import { useState } from "react";
@@ -7,21 +7,30 @@ import { useState } from "react";
 interface ProductCardProps {
   title: string;
   imageUrl: string;
+  slug: string;
 }
-export default function ProductCard({ title, imageUrl }: ProductCardProps) {
+
+export default function ProductCard({
+  title,
+  imageUrl,
+  slug,
+}: ProductCardProps) {
   const [open, setOpen] = useState(false);
+
   return (
     <>
       <div className="w-full max-w-sm rounded-2xl shadow-lg overflow-hidden bg-white transition hover:scale-105 hover:shadow-xl flex flex-col">
         {/* Image section with gradient */}
         <div className="relative h-48 flex items-center justify-center bg-gradient-to-r from-[#F4F9FF] to-[#184A99]">
-          <Image
-            src={imageUrl}
-            alt={title}
-            width={220}
-            height={220}
-            className="object-contain drop-shadow-xl"
-          />
+          <Link href={`/product/${slug}`}>
+            <Image
+              src={imageUrl}
+              alt={title}
+              width={220}
+              height={220}
+              className="object-contain drop-shadow-xl cursor-pointer"
+            />
+          </Link>
         </div>
 
         {/* Content section */}
@@ -29,22 +38,25 @@ export default function ProductCard({ title, imageUrl }: ProductCardProps) {
           {/* Product Name */}
           {title && (
             <h3 className="text-lg sm:text-base font-semibold text-gray-900 text-center">
-              {title}
+              <Link href={`/product/${slug}`} className="hover:text-[#184A99]">
+                {title}
+              </Link>
             </h3>
           )}
 
           {/* Spacer to push buttons down */}
-          <div className="flex-1"></div>
+          <div className="flex-1" />
 
-          {/* Buttons in one line, always at bottom */}
+          {/* Buttons row */}
           <div className="flex w-full justify-center items-stretch mt-2 gap-2">
-            {/* 30% WhatsApp button with icon only */}
+            {/* WhatsApp button (20%) */}
             <a
               href={`https://wa.me/916206372640?text=Hello, I am interested in ${title}`}
               target="_blank"
+              rel="noopener noreferrer"
               className="basis-[20%] flex items-center justify-center bg-green-500 text-white text-sm font-medium py-1 rounded-md hover:bg-green-600 transition"
             >
-              {/* Icon only */}
+              {/* WhatsApp Icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-5 h-5"
@@ -55,7 +67,7 @@ export default function ProductCard({ title, imageUrl }: ProductCardProps) {
               </svg>
             </a>
 
-            {/* 70% Check Price button */}
+            {/* Check Price button (80%) */}
             <button
               onClick={() => setOpen(true)}
               className="basis-[80%] bg-[#184A99] text-white text-sm font-medium py-1 rounded-md hover:bg-[#0f3a7e] transition"
@@ -65,6 +77,8 @@ export default function ProductCard({ title, imageUrl }: ProductCardProps) {
           </div>
         </div>
       </div>
+
+      {/* Popup */}
       <Popup isOpen={open} onClose={() => setOpen(false)} title={title} />
     </>
   );
