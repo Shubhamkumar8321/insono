@@ -39,7 +39,7 @@ from MP Dr. Nishikant Dubey.`,
       description: `Mr. Manoj Kumar, Managing Director of Insono Hearing Solutions
 Pvt. Ltd., honored at Jagran Health Excellence Awards 2025 for
 outstanding contributions in hearing healthcare. The event was
-graced by Hon'ble MP Dr. Nishikant Dubey and hosted by Dainik
+graced by Hon&apos;ble MP Dr. Nishikant Dubey and hosted by Dainik
 Jagran to celebrate excellence in the medical field.`,
       image: "/image/a4.png",
     },
@@ -68,21 +68,21 @@ Jagran to celebrate excellence in the medical field.`,
                 sounds and connect with others. Often, hearing loss is not
                 noticed right away, making it a silent condition with very real
                 impacts. Hearing loss can be full or partial and may affect one
-                or both ears. It's one of the fastest-growing health issues
+                or both ears. It&apos;s one of the fastest-growing health issues
                 worldwide. Causes range from aging and infections to genetics,
                 long-term illnesses, and loud noise exposure. This can lead to
                 challenges in our relationships and daily activities.
               </p>
               <p className="text-gray-700 leading-relaxed whitespace-pre-line pt-6">
                 <span className="text-xl font-semibold">Our Mission</span> at
-                Insono Hearing Solutions, we're dedicated to providing
+                Insono Hearing Solutions, we&apos;re dedicated to providing
                 top-quality hearing care with a personal touch and a focus on
                 100% customer satisfaction. We encourage patients to protect
                 their hearing and understand hearing loss, including ways to
                 prevent it. By building trust, our skilled audiologists and
                 technical team work closely with each patient, offering
                 customized care for speech and hearing needs. As an independent
-                clinic, we're not owned by any hearing aid manufacturer,
+                clinic, we&apos;re not owned by any hearing aid manufacturer,
                 allowing us to give free, unbiased advice. We believe hearing is
                 a vital part of life, and we aim to support our patients in
                 achieving better hearing health and a more fulfilling life.

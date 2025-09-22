@@ -3,11 +3,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { JSX } from "react";
+import React from "react";
+
+/* ---------- Types ---------- */
+interface Clinic {
+  id: string;
+  name: string;
+  locationLine: string;
+  address: string;
+  hours: string;
+  tag?: string;
+  catSlug?: string;
+}
 
 /* ---------- Data ---------- */
-
-const clinics = [
+const clinics: Clinic[] = [
   {
     id: "vinod-nagar",
     name: "Insono Hearing Cänic - Vinod Nagar",
@@ -94,7 +104,7 @@ const clinics = [
   {
     id: "jamshedpur",
     name: "Insono Hearing Clinic — Jamshedpur",
-    locationLine: '— hark" and Jamshedpur',
+    locationLine: "— hark and Jamshedpur",
     address: "Jamshedpur",
     hours: "Open by pm",
   },
@@ -108,7 +118,7 @@ const clinics = [
   },
   {
     id: "ranchi",
-    name: 'Insono Hearing C"nic — Ranchi',
+    name: "Insono Hearing Clinic — Ranchi",
     locationLine: "- Ranchi",
     address: "Online Service Available",
     hours: "Open by pm",
@@ -180,25 +190,25 @@ const clinics = [
   },
 ];
 
-const comparisonItems = [
+/* ---------- Comparison Items ---------- */
+const comparisonItems: string[] = [
   "Booking for an appointment at hearing clinics is quick and easy",
-  "Free hearing checkup at anytime and anywhere",
+  "Free hearing checkup at any time and anywhere",
   "Generating free preliminary hearing report",
   "Visiting a hearing clinic is mandatory",
   "Home visits by the hearing experts",
   "Live interaction with hearing experts at any time",
   "Many choices for hearing aids",
   "Clinic visit for the purchase of hearing aid accessories is compulsory",
-  "Remirder for the service and warranty of the hearing aid",
+  "Reminder for the service and warranty of the hearing aid",
   "Transparency while selecting the hearing aid by using Latest Hii5 technology is available",
-  "Hassle fre•e hearing c.are experience at your fingertips",
+  "Hassle-free hearing care experience at your fingertips",
 ];
 
 /* ------------------ Component ------------------ */
-
-export default function ClinicPage(): JSX.Element {
+export default function ClinicPage() {
   return (
-    <main className="g-gradient-to-b from-[#eaf5ff] to-white text-gray-900">
+    <main className="bg-gradient-to-b from-[#eaf5ff] to-white text-gray-900">
       {/* Breadcrumb area */}
       <section className="py-12 pt-24">
         <div className="max-w-6xl mx-auto px-4">
@@ -206,7 +216,7 @@ export default function ClinicPage(): JSX.Element {
             Insono Hearing Clinics
           </h1>
           <p className="mt-2 text-[#112f70]">
-            Best hearing experiences on Insono Hearing Clinics. Trusted by 1
+            Best hearing experiences at Insono Hearing Clinics. Trusted by 1
             Million+ satisfied customers.
           </p>
         </div>
@@ -249,7 +259,7 @@ export default function ClinicPage(): JSX.Element {
                   <div className="p-4 border-t bg-white">
                     <Link
                       href={`/clinic/clinic-view?cat=${encodeURIComponent(
-                        (c as any).catSlug || c.id
+                        c.catSlug || c.id
                       )}&slug=${encodeURIComponent(c.id)}`}
                       className="block text-center bg-[#023784] text-white py-2 rounded-md font-semibold"
                     >
@@ -270,7 +280,9 @@ export default function ClinicPage(): JSX.Element {
             <h3 className="text-2xl font-bold text-white">
               Insono Vs Other Providers
             </h3>
-            <p className="text-white">How excel from Other hearing providers</p>
+            <p className="text-white">
+              How we excel compared to other providers
+            </p>
           </div>
 
           <div className="overflow-x-auto">
@@ -298,10 +310,11 @@ export default function ClinicPage(): JSX.Element {
                     "Clinic visit for the purchase of hearing aid accessories is compulsory",
                   ];
                   const othersHasTick = othersTickExceptions.includes(row);
+
                   return (
                     <tr key={idx} className="border-b">
                       <td className="p-4 text-sm text-gray-700">{row}</td>
-                      <td className="p-4 text-center bg-[#eaf2ff] ">
+                      <td className="p-4 text-center bg-[#eaf2ff]">
                         <Image
                           src="https://storage.googleapis.com/hz-prd-media/static/hzv0.0.0.150/images/website/hz_greentickroun_icon.svg"
                           alt="tick"
