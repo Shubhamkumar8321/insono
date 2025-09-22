@@ -53,7 +53,7 @@ Jagran to celebrate excellence in the medical field.`,
         {/* About Us + Mission */}
         <section className="py-12 px-6 lg:px-12 space-y-8">
           <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="lg:w-6/12 relative h-[500px] bg-white rounded-lg overflow-hidden">
+            <div className="lg:w-6/12 w-full h-64 sm:h-80 md:h-96 lg:h-[500px] relative bg-white rounded-lg overflow-hidden">
               <Image
                 src="/image/a1.jpeg"
                 alt="About Us"
@@ -120,13 +120,13 @@ Jagran to celebrate excellence in the medical field.`,
         </section>
 
         {/* Director Section */}
-        <section className="py-16 px-6 lg:px-12">
+        <section className="py-16 px-6 lg:px-12 space-y-12">
           {doctors.map((doc) => (
             <div
               key={doc.id}
               className="flex flex-col lg:flex-row items-center gap-8 rounded-lg p-6"
             >
-              <div className="lg:w-4/12 relative h-[500px] bg-white rounded-lg overflow-hidden">
+              <div className="lg:w-4/12 w-full h-64 sm:h-80 md:h-96 lg:h-[500px] relative bg-white rounded-lg overflow-hidden">
                 <Image
                   src={doc.image}
                   alt={doc.title}
@@ -135,7 +135,9 @@ Jagran to celebrate excellence in the medical field.`,
                 />
               </div>
               <div className="lg:w-8/12">
-                <h2 className="text-5xl font-bold mb-4">{doc.title}</h2>
+                <h2 className="text-3xl lg:text-5xl font-bold mb-4">
+                  {doc.title}
+                </h2>
                 <p className="text-gray-700 leading-relaxed whitespace-pre-line">
                   {doc.description}
                 </p>
@@ -147,7 +149,9 @@ Jagran to celebrate excellence in the medical field.`,
         {/* Awards Section */}
         <section className="py-16 px-6 lg:px-12 space-y-12">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold">Awards & Recognition</h2>
+            <h2 className="text-3xl lg:text-5xl font-bold">
+              Awards & Recognition
+            </h2>
           </div>
           {awards.map((award, index) => (
             <div
@@ -156,7 +160,7 @@ Jagran to celebrate excellence in the medical field.`,
                 index % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
             >
-              <div className="lg:w-5/12 relative h-[500px] bg-white rounded-lg overflow-hidden">
+              <div className="lg:w-5/12 w-full h-64 sm:h-80 md:h-96 lg:h-[500px] relative bg-white rounded-lg overflow-hidden">
                 <Image
                   src={award.image}
                   alt={award.title}
@@ -165,7 +169,9 @@ Jagran to celebrate excellence in the medical field.`,
                 />
               </div>
               <div className="lg:w-7/12">
-                <h3 className="font-semibold text-2xl mb-3">{award.title}</h3>
+                <h3 className="font-semibold text-xl sm:text-2xl mb-3">
+                  {award.title}
+                </h3>
                 <p className="text-gray-700 leading-relaxed whitespace-pre-line">
                   {award.description}
                 </p>
