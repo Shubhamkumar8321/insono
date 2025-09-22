@@ -34,7 +34,7 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null); // ✅ Fixed type
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-[#4b72b5] to-[#023784] py-16 px-4">
