@@ -12,8 +12,8 @@ export default function Popup({ isOpen, onClose, title }: PopupProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl shadow-2xl w-full max-w-3xl p-6 relative flex flex-col md:flex-row gap-6 overflow-hidden">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-auto">
+      <div className="bg-white rounded-xl shadow-2xl w-full max-w-3xl p-6 relative flex flex-col md:flex-row gap-6">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -66,7 +66,7 @@ export default function Popup({ isOpen, onClose, title }: PopupProps) {
             />
             <input
               type="text"
-              data-compname="PhoneNumber" // ✅ fixed
+              data-compname="PhoneNumber"
               name="PhoneNumber_countrycode"
               id="international_PhoneNumber_countrycode"
               maxLength={20}
@@ -75,7 +75,6 @@ export default function Popup({ isOpen, onClose, title }: PopupProps) {
               className="w-full border border-gray-300 rounded-md p-3 text-sm focus:ring-2 focus:ring-[#25d366] focus:outline-none"
             />
 
-            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-[#25d366] text-white text-base font-medium py-3 rounded-md hover:bg-[#1ebe5d] transition"
@@ -86,14 +85,16 @@ export default function Popup({ isOpen, onClose, title }: PopupProps) {
         </div>
 
         {/* Right Side - Image */}
-        <div className="flex-1 flex items-center justify-center bg-gray-100 p-4">
-          <Image
-            src="/image/dha-price.png"
-            alt="Digital Hearing Aid Price List Preview"
-            width={400}
-            height={400}
-            className="rounded-xl shadow-lg"
-          />
+        <div className="flex-1 flex items-center justify-center p-4">
+          <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-full aspect-[1] relative">
+            <Image
+              src="/image/dha-price.png"
+              alt="Digital Hearing Aid Price List Preview"
+              fill
+              className="object-contain rounded-xl shadow-lg"
+              sizes="(max-width: 640px) 80vw, (max-width: 768px) 60vw, 400px"
+            />
+          </div>
         </div>
       </div>
     </div>
