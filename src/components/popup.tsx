@@ -66,7 +66,7 @@ export default function Popup({ isOpen, onClose, title }: PopupProps) {
             />
             <input
               type="text"
-              compname="PhoneNumber"
+              data-compname="PhoneNumber" // ✅ fixed
               name="PhoneNumber_countrycode"
               id="international_PhoneNumber_countrycode"
               maxLength={20}
