@@ -58,7 +58,7 @@ Jagran to celebrate excellence in the medical field.`,
                 src="/image/a1.jpeg"
                 alt="About Us"
                 fill
-                className="object-contain bg-white"
+                className="object-cover w-full h-full"
               />
             </div>
             <div className="lg:w-6/12">
@@ -131,7 +131,7 @@ Jagran to celebrate excellence in the medical field.`,
                   src={doc.image}
                   alt={doc.title}
                   fill
-                  className="object-contain bg-white"
+                  className="object-cover w-full h-full"
                 />
               </div>
               <div className="lg:w-8/12">
@@ -160,14 +160,15 @@ Jagran to celebrate excellence in the medical field.`,
                 index % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
             >
-              <div className="lg:w-5/12 w-full h-64 sm:h-80 md:h-96 lg:h-[500px] relative bg-white rounded-lg overflow-hidden">
+              <div className="w-full relative h-84 sm:h-98 md:h-108 lg:h-[600px] rounded-lg overflow-hidden">
                 <Image
                   src={award.image}
                   alt={award.title}
                   fill
-                  className="object-contain bg-white"
+                  className="object-contains w-full h-full"
                 />
               </div>
+
               <div className="lg:w-7/12">
                 <h3 className="font-semibold text-xl sm:text-2xl mb-3">
                   {award.title}
