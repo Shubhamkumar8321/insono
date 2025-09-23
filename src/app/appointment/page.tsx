@@ -5,11 +5,11 @@ import Image from "next/image";
 export default function ContactFormPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-10">
-      <div className="w-full max-w-4xl bg-white rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden">
+      <div className="w-full max-w-4xl bg-white rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden mt-10">
         {/* Left Side - Form */}
-        <div className="w-full md:w-1/2 p-8 sm:p-10">
-          <h1 className="text-3xl font-bold text-[#023784] mb-3 text-center">
-            Book a Free Hearing Test Appointment
+        <div className="w-full md:w-1/2 p-6 sm:p-8 lg:p-10">
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#023784] mb-4 text-center">
+            Book a Free Appointment
           </h1>
           <form
             action="https://forms.zohopublic.in/httpswwwinsonohearingcom1/form/PopupHearingAidAppointmentForm/formperma/x3az42yuKuLC_iSAkb7ggtCQlpLfj-gN-85WhU5H8bs/htmlRecords/submit"
@@ -59,7 +59,7 @@ export default function ContactFormPage() {
               className="w-full border border-gray-300 rounded-md p-3 text-sm min-h-[100px] focus:ring-2 focus:ring-[#184A99] focus:outline-none"
             />
 
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 leading-relaxed">
               Your information is secure. Our team will contact you to confirm
               your preferred time & method.
             </p>
@@ -74,13 +74,13 @@ export default function ContactFormPage() {
         </div>
 
         {/* Right Side - Image */}
-        <div className="w-full md:w-1/2 flex items-center justify-center bg-gray-100 p-6">
+        <div className="w-full md:w-1/2 flex items-center justify-center bg-gray-100 ">
           <Image
-            src="/image/dha-price.png"
+            src="/image/a1.jpeg"
             alt="Hearing Test"
             width={400}
-            height={400}
-            className="rounded-xl shadow-lg"
+            height={500}
+            className="rounded-xl shadow-lg w-full max-w-sm md:max-w-full h-auto object-cover"
           />
         </div>
       </div>

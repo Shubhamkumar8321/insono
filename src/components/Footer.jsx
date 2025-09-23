@@ -66,11 +66,11 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">Help & Support</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="/faq" className="hover:text-white">Free Consultation</a></li>
-              <li><a href="/contactUs" className="hover:text-white">Hearing Aid Guide</a></li>
+              <li><a href="/contactUs" className="hover:text-white">Free Appointment</a></li>
+              <li><a href="/guide" className="hover:text-white">Hearing Aid Guide</a></li>
               <li><a href="/contactUs" className="hover:text-white">Contact Us</a></li>
-              <li><a href="/contactUs" className="hover:text-white">Warranty & Repairs</a></li>
-              <li><a href="/contactUs" className="hover:text-white">Financing Options</a></li>
+              <li><a href="/faq" className="hover:text-white">Warranty & Repairs</a></li>
+              <li><a href="/faq" className="hover:text-white">Financing Options</a></li>
             </ul>
           </div>
         </div>

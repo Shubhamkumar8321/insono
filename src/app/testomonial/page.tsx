@@ -275,54 +275,6 @@ export default function TestimonialsPage() {
                 </p>
               </div>
             </Link>
-            <Link href="https://insonohearing.com/our-clinic">
-              <div className="bg-white text-black rounded-xl p-6 flex flex-col items-center hover:shadow-xl transition h-full">
-                <Image
-                  src="/assets/img/icon-where.svg"
-                  width={60}
-                  height={60}
-                  alt="appointment"
-                />
-                <h3 className="font-semibold mt-4 text-center">
-                  Meet An Expert
-                </h3>
-                <p className="mt-2 text-center">
-                  Visit our clinic and meet an expert audiologist.
-                </p>
-              </div>
-            </Link>
-            <Link href="https://insonohearing.com/our-clinic">
-              <div className="bg-white text-black rounded-xl p-6 flex flex-col items-center hover:shadow-xl transition h-full">
-                <Image
-                  src="/assets/img/icon-where.svg"
-                  width={60}
-                  height={60}
-                  alt="appointment"
-                />
-                <h3 className="font-semibold mt-4 text-center">
-                  Meet An Expert
-                </h3>
-                <p className="mt-2 text-center">
-                  Visit our clinic and meet an expert audiologist.
-                </p>
-              </div>
-            </Link>
-            <Link href="https://insonohearing.com/our-clinic">
-              <div className="bg-white text-black rounded-xl p-6 flex flex-col items-center hover:shadow-xl transition h-full">
-                <Image
-                  src="/assets/img/icon-where.svg"
-                  width={60}
-                  height={60}
-                  alt="appointment"
-                />
-                <h3 className="font-semibold mt-4 text-center">
-                  Meet An Expert
-                </h3>
-                <p className="mt-2 text-center">
-                  Visit our clinic and meet an expert audiologist.
-                </p>
-              </div>
-            </Link>
           </div>
         </div>
       </section>
