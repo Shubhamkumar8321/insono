@@ -164,13 +164,7 @@ export default function TestimonialsPage() {
                   <h5 className="text-xl font-semibold">{t.name}</h5>
                   <div className="flex gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <Image
-                        key={i}
-                        src="/assets_b/img/star.svg"
-                        width={20}
-                        height={20}
-                        alt="star"
-                      />
+                      <Image key={i} src="" width={20} height={20} alt="star" />
                     ))}
                   </div>
                   <p className="text-center text-gray-700">{t.description}</p>

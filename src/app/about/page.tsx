@@ -1,8 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { NextSeo } from "next-seo";
 import Head from "next/head";
+import dynamic from "next/dynamic";
+
+// ✅ Dynamic import NextSeo (disable SSR to fix prerender error)
+const NextSeo = dynamic(() => import("next-seo").then((mod) => mod.NextSeo), {
+  ssr: false,
+});
 
 export default function AboutPage() {
   const siteName = "Insono Hearing Solutions";
