@@ -258,12 +258,12 @@ export default function ClinicPage() {
 
                   <div className="p-4 border-t bg-white">
                     <Link
-                      href={`/clinic/clinic-view?cat=${encodeURIComponent(
+                      href={`/appointment?cat=${encodeURIComponent(
                         c.catSlug || c.id
                       )}&slug=${encodeURIComponent(c.id)}`}
                       className="block text-center bg-[#023784] text-white py-2 rounded-md font-semibold"
                     >
-                      View Clinic
+                      Book Appointment
                     </Link>
                   </div>
                 </article>

@@ -172,7 +172,7 @@ export default function Navigation() {
 
               {openMenu === "hearing" && (
                 <div
-                  className="absolute left-1/2 top-full mt-2 w-screen max-w-7xl bg-white border border-gray-200 shadow-lg flex justify-center z-50 transform -translate-x-1/4"
+                  className="absolute pl-16 top-full mt-2 w-screen bg-white border border-gray-200 shadow-lg flex justify-center z-50 transform -translate-x-1/4"
                   ref={dropdownRef}
                 >
                   <div className="w-full flex bg-white rounded-lg overflow-hidden">
